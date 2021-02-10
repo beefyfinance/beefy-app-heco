@@ -19,7 +19,7 @@ export function fetchVaultsData({ address, web3, pools }) {
     });
 
     const promise = new Promise((resolve, reject) => {
-      const multicall = new MultiCall(web3, '0xB94858b0bB5437498F5453A16039337e5Fdc269C');
+      const multicall = new MultiCall(web3, '0x2776CF9B6E2Fa7B33A37139C3CB1ee362Ff0356e');
 
       const tokenCalls = pools.map(pool => {
         const bnbShimAddress = '0xC72E5edaE5D7bA628A2Acb39C8Aa0dbbD06daacF';

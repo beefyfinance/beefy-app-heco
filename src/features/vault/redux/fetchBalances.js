@@ -25,7 +25,7 @@ export function fetchBalances({ address, web3, tokens }) {
         });
       }
 
-      const multicall = new MultiCall(web3, '0xB94858b0bB5437498F5453A16039337e5Fdc269C');
+      const multicall = new MultiCall(web3, '0x2776CF9B6E2Fa7B33A37139C3CB1ee362Ff0356e');
 
       const calls = tokensList.map(token => {
         if (!token.tokenAddress) {
