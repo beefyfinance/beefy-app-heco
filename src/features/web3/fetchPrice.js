@@ -2,20 +2,7 @@ import axios from 'axios';
 import { pools } from '../configure/pools';
 
 const endpoints = {
-  bakery: 'https://api.beefy.finance/bakery/price',
-  bakeryLp: 'https://api.beefy.finance/bakery/lps',
-  bdollarLp: 'https://api.beefy.finance/bdollar/lps',
-  coingecko: 'https://api.coingecko.com/api/v3/simple/price',
-  jetfuelLp: 'https://api.beefy.finance/jetfuel/lps',
-  kebabLp: 'https://api.beefy.finance/kebab/lps',
-  monsterLp: 'https://api.beefy.finance/monster/lps',
-  narwhalLp: 'https://api.beefy.finance/narwhal/lps',
-  nyanswopLp: 'https://api.beefy.finance/nyanswop/lps',
-  pancake: 'https://api.beefy.finance/pancake/price',
-  pancakeLp: 'https://api.beefy.finance/pancake/lps',
-  thugs: 'https://api.beefy.finance/thugs/tickers',
-  thugsLp: 'https://api.beefy.finance/thugs/lps',
-  spongeLp:   'https://api.beefy.finance/sponge/lps',
+  mdexLp: 'https://api.beefy.finance/mdex/lps',
 };
 
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
@@ -47,60 +34,6 @@ function maybeUpdateCache() {
   }
 }
 
-const fetchCoingecko = async ids => {
-  try {
-    const response = await axios.get(endpoints.coingecko, {
-      params: { ids: ids.join(','), vs_currencies: 'usd' },
-    });
-    const prices = {};
-    for (let id in response.data) {
-      prices[id] = response.data[id].usd;
-    }
-    return prices;
-  } catch (err) {
-    console.error(err);
-    return {};
-  }
-};
-
-const fetchPancake = async () => {
-  try {
-    const response = await axios.get(endpoints.pancake);
-    return response.data.prices;
-  } catch (err) {
-    console.error(err);
-    return {};
-  }
-};
-
-const fetchThugs = async () => {
-  try {
-    const response = await axios.get(endpoints.thugs);
-    const bnb = response.data[WBNB_BUSD]['last_price'];
-    const prices = {};
-
-    for (let pair in response.data) {
-      const ticker = response.data[pair];
-
-      let price = 0;
-      if (pair === `${WBNB}_${BUSD}`) {
-        price = bnb;
-      } else if (pair.startsWith(`${WBNB}_`)) {
-        price = bnb / ticker['last_price'];
-      } else {
-        price = bnb * ticker['last_price'];
-      }
-
-      prices[pair] = price;
-    }
-
-    return prices;
-  } catch (err) {
-    console.error(err);
-    return {};
-  }
-};
-
 const fetchLP = async endpoint => {
   try {
     const response = await axios.get(endpoint);
@@ -111,31 +44,8 @@ const fetchLP = async endpoint => {
   }
 };
 
-const fetchBakery = async () => {
-  try {
-    const response = await axios.get(endpoints.bakery);
-    return response.data;
-  } catch (err) {
-    console.error(err);
-    return {};
-  }
-};
-
 const oracleEndpoints = {
-  'bakery-lp': () => fetchLP(endpoints.bakeryLp),
-  'bakery': () => fetchBakery(),
-  'bdollar-lp': () => fetchLP(endpoints.bdollarLp),
-  'coingecko': ids => fetchCoingecko(ids),
-  'jetfuel-lp': () => fetchLP(endpoints.jetfuelLp),
-  'monster-lp': () => fetchLP(endpoints.monsterLp),
-  'narwhal-lp': () => fetchLP(endpoints.narwhalLp),
-  'nyanswop-lp': () => fetchLP(endpoints.nyanswopLp),
-  'pancake': () => fetchPancake(),
-  'pancake-lp': () => fetchLP(endpoints.pancakeLp),
-  'thugs': () => fetchThugs(),
-  'thugs-lp': () => fetchLP(endpoints.thugsLp),
-  'kebab-lp': () => fetchLP(endpoints.kebabLp),
-  'sponge-lp': () => fetchLP(endpoints.spongeLp),
+  'mdex-lp': () => fetchLP(endpoints.mdexLp),
 };
 
 export async function initializePriceCache() {
