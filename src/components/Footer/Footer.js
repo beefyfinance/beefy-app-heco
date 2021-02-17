@@ -68,7 +68,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://app.beefy.finance"
+          href="https://heco.beefy.finance"
           target="_blank"
           rel="noopener noreferrer"
           className={classes.link}

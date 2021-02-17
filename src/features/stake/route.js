@@ -1,4 +1,5 @@
-import { StakePage } from './';
+// TODO: reenable once staking is done in-app
+// import { StakePage } from './';
 
 export default {
   path: 'stake',

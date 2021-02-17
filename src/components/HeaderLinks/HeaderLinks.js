@@ -31,7 +31,7 @@ const HeaderLinks = ({ connected, address, connectWallet, disconnectWallet, isNi
 
     const languageCode = cachedLanguage.split('-')[0].toLowerCase()
     setLanguage(languageCode)
-  }, [])
+  }, [i18n.language]);
 
   useEffect(() => {
     if (!connected) {
