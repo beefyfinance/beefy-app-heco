@@ -1,7 +1,7 @@
 export const pools = [
   {
     id: 'mdex-mdx-usdt',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/mdx-usdt.png',
     name: 'MDX-USDT LP',
     token: 'MDX-USDT LP',
     tokenDescription: 'Uses: Mdex',
@@ -24,7 +24,7 @@ export const pools = [
   },
   {
     id: 'mdex-mdx-wht',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/mdx-wht.png',
     name: 'MDX-WHT LP',
     token: 'MDX-WHT LP',
     tokenDescription: 'Uses: Mdex',
@@ -47,7 +47,7 @@ export const pools = [
   },
   {
     id: 'mdex-wht-usdt',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/wht-usdt.png',
     name: 'WHT-USDT LP',
     token: 'WHT-USDT LP',
     tokenDescription: 'Uses: Mdex',
@@ -70,7 +70,7 @@ export const pools = [
   },
   {
     id: 'mdex-wht-husd',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/wht-husd.png',
     name: 'WHT-HUSD LP',
     token: 'WHT-HUSD LP',
     tokenDescription: 'Uses: Mdex',
@@ -93,7 +93,7 @@ export const pools = [
   },
   {
     id: 'mdex-hbtc-usdt',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/hbtc-usdt.png',
     name: 'HBTC-USDT LP',
     token: 'HBTC-USDT LP',
     tokenDescription: 'Uses: Mdex',
@@ -116,7 +116,7 @@ export const pools = [
   },
   {
     id: 'mdex-eth-usdt',
-    logo: 'bifi/BIFI.png',
+    logo: 'mdex/eth-usdt.png',
     name: 'ETH-USDT LP',
     token: 'ETH-USDT LP',
     tokenDescription: 'Uses: Mdex',
